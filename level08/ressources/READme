@@ -1,0 +1,4 @@
+strings level08
+
+ln -s ~/token /tmp/level8
+

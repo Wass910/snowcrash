@@ -1,0 +1,5 @@
+strings level06
+
+vim /dev/shm/level6
+
+./level06 /dev/shm/level6

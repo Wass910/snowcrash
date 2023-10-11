@@ -1,0 +1,5 @@
+scp -P 4242 level02@10.11.200.166:~/level02.pcap .
+
+puis analyce avec wireshark
+
+ft_waNDReL0L
