@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
         char decrypted_char = input_string[i] - i;
         printf("%c", decrypted_char);
     }
-    printf("\n");  // pour ajouter une nouvelle ligne à la fin
+    printf("\n");  
 
     return 0;
 }
