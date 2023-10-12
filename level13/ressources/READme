@@ -1,0 +1,9 @@
+gdb level13
+
+disassemble main
+
+break a eax et instru precedente
+
+info register eax puis modifier a 4242 au changement a 2013
+
+s puis le flag apparait

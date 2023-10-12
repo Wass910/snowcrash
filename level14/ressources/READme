@@ -1,0 +1,7 @@
+aucun fichier donc go reverse getflag
+
+impossible de reverse a cause de ptrace donc modifier eak a 0
+
+uid de flg 14 et 3014 donc break au main a ptrace et a get uid pour set le eax 
+
+recuperrer le flag final 
